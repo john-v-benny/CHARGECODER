@@ -1,0 +1,67 @@
+
+
+.login-box{
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid black;
+    width: 500px;
+    max-height: 700px;
+    margin: 100px auto;
+    text-align: center;
+    border-radius: 25px;
+    padding-bottom: 50px;
+    padding-top: 25px;
+    font-family: "BenchNine", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+
+img{
+    margin: 20px;
+}
+
+
+.fp{
+    text-align: start;
+    font-size: 13px;
+    margin-left: 50px;
+}
+
+.i1,.i2{
+    margin: 20px;
+    width: 400px;
+    height: 50px;
+    border: #DB6B1A;
+    box-shadow: 2px 2px 5px #DB6B1A;
+}
+
+.loginb{
+    width: 400px;
+    height: 50px;
+    border: none;
+    border-radius: 35px;
+    background-color: #9956C5;
+    color: white;
+    box-shadow: 2px 2px 5px #000000;
+    font-family: "BenchNine", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 25px;
+    margin: 10px;
+}
+
+.signupb{
+    width: 400px;
+    height: 50px;
+    border: none;
+    border-radius: 35px;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 5px #000000;
+    font-family: "BenchNine", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 25px;
+    margin: 10px;
+}
