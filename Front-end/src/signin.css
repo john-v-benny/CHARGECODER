@@ -5,10 +5,10 @@
     border: 1px solid rgb(0, 0, 0);
     background: white;
     width: 500px;
-    max-height: 700px;
-    margin: 100px auto;
+    max-height: 600px;
+    margin: 10px auto;
     text-align: center;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: bottom px;
     padding-top: -50px;
     font-family: "BenchNine", serif;
@@ -24,7 +24,7 @@ img{
 
 .fp{
     text-align: start;
-    font-size: 13px;
+    font-size: 15px;
     margin-left: 50px;
 }
 
@@ -32,7 +32,7 @@ img{
     margin: 20px;
     width: 400px;
     height: 50px;
-    border: #DB6B1A;
+    border: #c1601c;
     box-shadow: 2px 2px 5px #DB6B1A;
 }
 
