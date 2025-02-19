@@ -1,22 +1,20 @@
-import React,{useState} from "react";
-import "./signin.css";
-import logo_cc from "./assets/logo_cc.png";
-import {useNavigate} from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './SignIn.css';
+import logo_cc from './assets/logo_cc.png';
 
-const Sign_in = () =>{
+const SignIn = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    const[email,setEmail] = useState("");
-    const[password,setPassword] = useState("");
-    const navigate = useNavigate();
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    navigate('/landing');
+  };
 
-    const handleSignIn = (e) => {
-        e.preventDefault();
-        navigate("/Landing")
-
-    }
-
-    return(
-        <div className="login-box">
+  return (
+    <div className="login-box">
             <img src={logo_cc} alt="Logo" />
             <form onSubmit={handleSignIn}>
                 <input className="i1"
@@ -44,4 +42,4 @@ const Sign_in = () =>{
 
 }
 
-export default Sign_in;
+export default SignIn;

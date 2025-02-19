@@ -2,19 +2,19 @@
 
 .login-box{
     font-family: 'Times New Roman', Times, serif;
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0);
+    background: white;
     width: 500px;
     max-height: 700px;
     margin: 100px auto;
     text-align: center;
     border-radius: 25px;
-    padding-bottom: 50px;
-    padding-top: 25px;
+    padding: bottom px;
+    padding-top: -50px;
     font-family: "BenchNine", serif;
     font-weight: 300;
     font-style: normal;
 }
-
 
 
 img{
@@ -63,5 +63,5 @@ img{
     font-weight: 300;
     font-style: normal;
     font-size: 25px;
-    margin: 10px;
+    margin: 0px;
 }
