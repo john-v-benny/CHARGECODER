@@ -1,17 +1,21 @@
-import React from "react";
-import Sign_in from "./Sign_in";
-import Landing from "./Landing";
-import { BrowserRouter as Router, Routes, Route, HashRouter } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import SignIn from './SignIn';
+import Landing from './Landing';
+import Profile from './Profile';
+import LegalSection from './LegalSection';
 
-function App(){
-    return(
-        <Router>
-            <Routes>
-                <Route path="/" element={<Sign_in />} />
-                <Route path="/Landing" element={<Landing />} />
-            </Routes>
-        </Router>
-    )
-}
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/landing" element={<Landing />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/legal" element={<LegalSection />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
