@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('legal/', include('legal_db.urls')),
     path('', RedirectView.as_view(url='legal/')),
+    path('api/', include('legal_db.urls')),
 ]
