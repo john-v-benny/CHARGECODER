@@ -7,7 +7,84 @@ body {
     text-align: center;
     margin-top: 50px;
   }
-  
+  /* General container styling */
+.legal-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Heading styling */
+.legal-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Search input styling */
+.legal-container input[type="text"] {
+  width: calc(100% - 100px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Search button styling */
+.legal-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.legal-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Result container styling */
+.result-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-container h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.result-container p {
+  color: #555;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.result-container p strong {
+  color: #333;
+}
+
+/* Error message styling */
+.error-message {
+  margin-top: 20px;
+  color: #dc3545;
+  font-size: 16px;
+  text-align: center;
+}
   input[type="text"] {
     display: block;
     margin: 10px auto;
