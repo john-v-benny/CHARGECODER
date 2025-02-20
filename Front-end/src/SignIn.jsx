@@ -20,14 +20,14 @@ const SignIn = () => {
                 <input className="i1"
                 type="email"
                 value={email}
-                placeholder="email"
+                placeholder="     email"
                 onChange={(e) => setEmail(e.target.value)}
                 />
                 <br />
                 <input className="i2"
                 type="password"
                 value={password}
-                placeholder="password"
+                placeholder="     password"
                 onChange={(e) => setPassword(e.target.value)}
                 />
                 <p className="fp">FORGOT PASSWORD?</p>
