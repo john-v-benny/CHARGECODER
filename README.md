@@ -147,6 +147,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 For questions or support, please contact:
 
-- **Your Name**: your.email@example.com
-- **Project Link**: [https://github.com/yourusername/your-repo](https://github.com/yourusername/your-repo)
+- **Your Name**: johnvbenny@gmail.com
+- **Project Link**: https://github.com/john-v-benny/CHARGECODER
     
