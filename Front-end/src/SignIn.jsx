@@ -13,33 +13,36 @@ const SignIn = () => {
     navigate('/landing');
   };
 
+  const handleSignUp = () => {
+    navigate('/signup'); // Navigate to Signup page
+  };
+
   return (
     <div className="login-box">
-            <img src={logo_cc} alt="Logo" />
-            <form onSubmit={handleSignIn}>
-                <input className="i1"
-                type="email"
-                value={email}
-                placeholder="     email"
-                onChange={(e) => setEmail(e.target.value)}
-                />
-                <br />
-                <input className="i2"
-                type="password"
-                value={password}
-                placeholder="     password"
-                onChange={(e) => setPassword(e.target.value)}
-                />
-                <p className="fp">FORGOT PASSWORD?</p>
-                <button className="loginb" type="submit">SIGN IN</button>
-                <p>OR</p>
-                <button className="signupb">SIGN UP</button>
-            </form>
-            
-
-        </div>
-    )
-
+      <img src={logo_cc} alt="Logo" />
+      <form onSubmit={handleSignIn}>
+        <input 
+          className="i1"
+          type="email"
+          value={email}
+          placeholder="     email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        <input 
+          className="i2"
+          type="password"
+          value={password}
+          placeholder="     password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <p className="fp">FORGOT PASSWORD?</p>
+        <button className="loginb" type="submit">SIGN IN</button>
+        <p>OR</p>
+        <button className="signupb" type="button" onClick={handleSignUp}>SIGN UP</button>
+      </form>
+    </div>
+  );
 }
 
 export default SignIn;
