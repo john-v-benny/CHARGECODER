@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.views.generic import RedirectView
+from .views import RegisterView, LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('legal/', include('legal_db.urls')),
     path('', RedirectView.as_view(url='legal/')),
     path('api/', include('legal_db.urls')),
+    path('register/', RegisterView.as_view(), name='register'),  # Registration endpoint
+    path('login/', LoginView.as_view(), name='login'),  # Login endpoint
 ]
