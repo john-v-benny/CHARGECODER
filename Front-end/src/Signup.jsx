@@ -7,6 +7,7 @@ const Signup = () => {
     name: "",
     email: "",
     password: "",
+    dob: "", // New DOB field
     rememberMe: false,
   });
 
@@ -70,6 +71,18 @@ const Signup = () => {
               value={formData.password}
               onChange={handleChange}
               placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          {/* Date of Birth */}
+          <div className="input-group">
+            <label>Date of Birth</label>
+            <input
+              type="date"
+              name="dob"
+              value={formData.dob}
+              onChange={handleChange}
               required
             />
           </div>

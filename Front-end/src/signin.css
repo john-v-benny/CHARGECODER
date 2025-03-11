@@ -3,7 +3,7 @@
 .login-box{
     font-family: "BenchNine", serif;
     border: 1px solid rgb(0, 0, 0);
-    background: white;
+    background: rgb(237, 234, 234);
     width: 400px; 
     max-height: 650px; 
     margin: 50px auto;
