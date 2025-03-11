@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";  // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 import "./Landing.css";
 
 const Landing = () => {
   const [query, setQuery] = useState('');
-  const navigate = useNavigate();  // Initialize useNavigate hook
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
@@ -12,35 +13,35 @@ const Landing = () => {
 
   const handleSearch = () => {
     alert(`Searching for: ${query}`);
-    // Add your search logic here
+  };
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
   };
 
   const handleProfileClick = () => {
-    navigate("/profile"); // Navigate to the Profile page
+    navigate("/profile");
   };
 
   const handleLegalClick = () => {
-    navigate("/legal"); // Navigate to the Legal Section page
+    navigate("/legal");
   };
 
   return (
     <div className="container">
-      {/* Profile/Dashboard Button */}
-      <button 
-        className="profile-button" 
-        onClick={handleProfileClick}
-      >
-        Profile
+      {/* Dashboard Button */}
+      <button className="dashboard-button" onClick={toggleSidebar}>
+        
       </button>
 
-      {/* Legal Section Button */}
-      <button 
-        className="legal-button" 
-        onClick={handleLegalClick}
-      >
-        Legal Section
-      </button>
+      {/* Sidebar */}
+      <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+        <button className="close-sidebar" onClick={toggleSidebar}>&times;</button>
+        <button className="sidebar-button" onClick={handleProfileClick}>Profile</button>
+        <button className="sidebar-button" onClick={handleLegalClick}>Legal Section</button>
+      </div>
 
+      {/* Search Box */}
       <div className="searchbox_cont">
         <input 
           type="text"
@@ -50,11 +51,7 @@ const Landing = () => {
           className="search-input"
           aria-label="Search input"
         />
-
-        <button 
-          className="search-button"
-          onClick={handleSearch}
-        >
+        <button className="search-button" onClick={handleSearch}>
           Search
         </button>
       </div>
