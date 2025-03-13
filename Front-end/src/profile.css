@@ -1,5 +1,5 @@
 /* Profile Page Container */
-.profile-container {
+body.profile-page{
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -9,8 +9,8 @@
 }
 
 /* Dashboard Box */
-.dashboard-container {
-    background: #ebeaea;
+.dashboard-box {
+    background: #ffffff;
     width: 80%;
     max-width: 500px;
     max-height: 1500px;
@@ -23,13 +23,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 330px;
-    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 400px;
 }
 
-.dashboard-container:hover {
-    transform: translateY(-10px);
-}
+
 
 /* Avatar Section */
 .avatar-container {
@@ -91,7 +89,7 @@
 
 .user-info p {
     font-size: 16px;
-    color: #777;
+    color: #0a0808;
     margin: 5px 0;
 }
 

@@ -31,7 +31,9 @@ const LegalSection = () => {
   };
 
   return (
-    <div className="legal-container">
+  <body class="legal-page">
+   <div class="legal-container">
+    <div className="legal-box">
       <h2>Legal Section Search</h2>
       <input
         type="text"
@@ -52,6 +54,8 @@ const LegalSection = () => {
 
       {error && <p className="error-message">{error}</p>}
     </div>
+    </div>
+    </body>
   );
 };
 

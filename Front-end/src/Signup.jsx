@@ -48,7 +48,7 @@ const Signup = () => {
               required
             />
           </div>
-
+          
           {/* Email */}
           <div className="input-group">
             <label>Email</label>
