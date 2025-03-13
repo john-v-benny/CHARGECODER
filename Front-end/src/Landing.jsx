@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Landing.css";
 
 const Landing = () => {
   const [query, setQuery] = useState("");
   const [prediction, setPrediction] = useState(null);
+  const [sectionDetails, setSectionDetails] = useState(null);
+  const [error, setError] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -19,7 +22,8 @@ const Landing = () => {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/predict/", {
+      // Step 1: Get the predicted section from the model
+      const predictionResponse = await fetch("http://127.0.0.1:8000/api/predict/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,15 +31,48 @@ const Landing = () => {
         body: JSON.stringify({ text: query }),
       });
 
-      if (!response.ok) {
+      if (!predictionResponse.ok) {
         throw new Error("Failed to fetch prediction");
       }
 
-      const data = await response.json();
-      setPrediction(data.predicted_section);
+      const predictionData = await predictionResponse.json();
+      setPrediction(predictionData.predicted_section);
+
+      // Step 2: Extract the IT Act section from the prediction
+      const itActSection = predictionData.predicted_section
+        .split(", ") // Split into ["BNS: Section 332", "IT Act: Section 70"]
+        .find((section) => section.startsWith("IT Act")); // Find the IT Act section
+
+      if (itActSection) {
+        // Step 3: Fetch details of the IT Act section
+        //const sectionName = itActSection.replace("IT Act: ", "IT Act "); // Convert "IT Act: Section 70" to "IT Act Section 70"
+        const ITsection = itActSection.split(": ").find((section) => section.startsWith("Section"));
+        const sectionNo = ITsection.replace("Section ","")
+        const detailsResponse = await axios.get(
+          `http://127.0.0.1:8000/legal/search/?q=${sectionNo}`
+        );
+
+        if (detailsResponse.data.length > 0) {
+          setSectionDetails({
+            title: detailsResponse.data[0].legal_section,
+            description: detailsResponse.data[0].section_description,
+            punishments: detailsResponse.data[0].punishments,
+          });
+          setError(null);
+        } else {
+          setSectionDetails(null);
+          setError("No details found for this section.");
+        }
+      } else {
+        // If no IT Act section is found in the prediction
+        setSectionDetails(null);
+        setError("No IT Act section found in the prediction.");
+      }
     } catch (error) {
-      console.error("Error fetching prediction:", error);
-      alert("Error fetching prediction. Please try again.");
+      console.error("Error:", error);
+      setPrediction(null);
+      setSectionDetails(null);
+      setError("An error occurred. Please try again.");
     }
   };
 
@@ -85,6 +122,19 @@ const Landing = () => {
             <p>{prediction}</p>
           </div>
         )}
+
+        {/* Display Section Details (if available) */}
+        {sectionDetails && (
+          <div className="details-box">
+            <h3>Section Details:</h3>
+            <p><strong>Title:</strong> {sectionDetails.title}</p>
+            <p><strong>Description:</strong> {sectionDetails.description}</p>
+            <p><strong>Punishments:</strong> {sectionDetails.punishments}</p>
+          </div>
+        )}
+
+        {/* Display Error Message */}
+        {error && <p className="error-message">{error}</p>}
       </div>
     </div>
   );
