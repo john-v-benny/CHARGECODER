@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import "./profile.css";
 import defaultAvatar from "./assets/default-avatar.jpg";
 
@@ -12,7 +13,7 @@ const Dashboard = () => {
     history: [
     ],
   });
-
+ const navigate = useNavigate();
   useEffect(() => {
     // Fetch user data from database
     // Example API call:
@@ -34,8 +35,10 @@ const Dashboard = () => {
 
   return (
   <body class="profile-page">
-   <div class="dashboard-container">
-    <div className="dashboard-box">
+    <button className="home-button" onClick={() => navigate('/landing')}></button>
+
+    <div class="dashboard-container">
+     <div className="dashboard-box">
       <div className="avatar-container">
         <img 
           src={userData.avatar} 

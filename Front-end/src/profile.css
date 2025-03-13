@@ -138,3 +138,26 @@ body.profile-page{
         height: 100px;
     }
 }
+
+home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 11px;
+    background-image: url("./assets/home-logo-png.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(30, 3, 113);
+    border: none;
+    border-radius: 0px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #0056b3;
+  }
+  
+

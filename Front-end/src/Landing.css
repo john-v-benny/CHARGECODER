@@ -24,16 +24,18 @@ body, html {
     position: absolute;
     top: 20px;
     left: 20px;
-    padding: 10px 10px;
-    background-image: url("./assets/dashboradicon.jpg");
+    padding: 13px 18px;
+    background-image: url("./assets/icon.png");
     background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    color: #070101;
+    background-color: #9956C5;
+    color: #e1d2d2;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    
 }
 
 .dashboard-button:hover {
