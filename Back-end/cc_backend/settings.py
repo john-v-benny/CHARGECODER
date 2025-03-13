@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'legal_db',
     'rest_framework',
     'corsheaders',
+    
 ]
 
 MIDDLEWARE = [
