@@ -10,7 +10,7 @@ const LegalSection = () => {
   const handleSearch = async () => {
     try {
       // Fetch data from the Django backend API
-      const response = await axios.get(`http://127.0.0.1:8000/api/search/?q=${query}`);
+      const response = await axios.get(`http://127.0.0.1:8000/legal/search/?q=${query}`);
       
       if (response.data.length > 0) {
         setResult({
