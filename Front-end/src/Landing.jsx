@@ -63,26 +63,29 @@ const Landing = () => {
         <button className="sidebar-button" onClick={handleLegalClick}>Legal Section</button>
       </div>
 
-      {/* Search Box */}
-      <div className="searchbox_cont">
-        <input
-          type="text"
-          placeholder="Type here"
-          value={query}
-          onChange={handleInputChange}
-          className="search-input"
-          aria-label="Search input"
-        />
-        <button className="search-button" onClick={handleSearch}>Search</button>
-      </div>
-
-      {/* Display Prediction */}
-      {prediction && (
-        <div className="prediction-box">
-          <h3>Predicted Section:</h3>
-          <p>{prediction}</p>
+      {/* Main Content */}
+      <div className="main-content">
+        {/* Search Box */}
+        <div className="searchbox_cont">
+          <input
+            type="text"
+            placeholder="Type here"
+            value={query}
+            onChange={handleInputChange}
+            className="search-input"
+            aria-label="Search input"
+          />
+          <button className="search-button" onClick={handleSearch}>Search</button>
         </div>
-      )}
+
+        {/* Display Prediction */}
+        {prediction && (
+          <div className="prediction-box">
+            <h3>Predicted Section:</h3>
+            <p>{prediction}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
