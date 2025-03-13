@@ -18,6 +18,8 @@ const SignIn = () => {
   };
 
   return (
+    <body class="login-page">
+      <div class="login-container">
     <div className="login-box">
       <img src={logo_cc} alt="Logo" />
       <form onSubmit={handleSignIn}>
@@ -42,6 +44,8 @@ const SignIn = () => {
         <button className="signupb" type="button" onClick={handleSignUp}>SIGN UP</button>
       </form>
     </div>
+    </div>
+    </body>
   );
 }
 

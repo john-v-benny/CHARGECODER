@@ -1,9 +1,17 @@
-
-
-.login-box{
+body.login-page{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("./assets/lawbg.jpg");
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+  
+.login-box {
     font-family: "BenchNine", serif;
     border: 1px solid rgb(0, 0, 0);
-    background: rgb(237, 234, 234);
+    background: rgb(255, 255, 255);
     width: 400px; 
     max-height: 650px; 
     margin: 50px auto;
@@ -13,19 +21,17 @@
     font-weight: 300;
 }
 
-
-img{
+img {
     margin: 20px;
 }
 
-
-.fp{
+.fp {
     text-align: start;
     font-size: 15px;
     margin-left: 50px;
 }
 
-.i1,.i2{
+.i1, .i2 {
     margin: 10px;
     width: 400px;
     height: 50px;
@@ -33,7 +39,7 @@ img{
     box-shadow: 2px 2px 5px #DB6B1A;
 }
 
-.loginb{
+.loginb {
     width: 400px;
     height: 50px;
     border: none;
@@ -48,7 +54,7 @@ img{
     margin: 10px;
 }
 
-.signupb{
+.signupb {
     width: 400px;
     height: 50px;
     border: none;

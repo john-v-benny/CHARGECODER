@@ -33,7 +33,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-container">
+  <body class="profile-page">
+   <div class="dashboard-container">
+    <div className="dashboard-box">
       <div className="avatar-container">
         <img 
           src={userData.avatar} 
@@ -70,6 +72,8 @@ const Dashboard = () => {
         </ul>
       </div>
     </div>
+    </div>
+  </body>
   );
 };
 
