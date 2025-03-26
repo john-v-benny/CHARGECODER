@@ -1,55 +1,70 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import "./Signup.css"; // Importing the CSS file
+import { useNavigate } from "react-router-dom";
+import "./Signup.css";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
-    dob: "", // New DOB field
-    rememberMe: false,
   });
 
-  const navigate = useNavigate(); // Initialize navigation
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    navigate("/landing"); // Navigate to landing page on signup
+  
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/auth/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      const data = await response.json();
+      console.log("Response Data:", data); // Log full response
+  
+      if (response.ok) {
+        console.log("Signup successful:", data);
+        navigate("/signin"); // Navigate on success
+      } else {
+        console.error("Signup failed:", data);
+        alert(JSON.stringify(data)); // Show full error message
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
-
-  const handleSignIn = () => {
-    navigate("/"); // Navigate to Sign In page
-  };
+  
+  
 
   return (
     <div className="signup-container">
       <div className="signup-box">
         <h2 className="signup-title">Sign Up</h2>
+        {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit} className="signup-form">
-          {/* Name */}
           <div className="input-group">
-            <label>Name</label>
+            <label>Username</label>
             <input
               type="text"
-              name="name"
-              value={formData.name}
+              name="username"
+              value={formData.username}
               onChange={handleChange}
-              placeholder="Enter your name"
+              placeholder="Enter your username"
               required
             />
           </div>
-          
-          {/* Email */}
+
           <div className="input-group">
             <label>Email</label>
             <input
@@ -62,7 +77,6 @@ const Signup = () => {
             />
           </div>
 
-          {/* Password */}
           <div className="input-group">
             <label>Password</label>
             <input
@@ -75,40 +89,12 @@ const Signup = () => {
             />
           </div>
 
-          {/* Date of Birth */}
-          <div className="input-group">
-            <label>Date of Birth</label>
-            <input
-              type="date"
-              name="dob"
-              value={formData.dob}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* Remember Me & Submit */}
-          <div className="remember-me">
-            <label>
-              <input
-                type="checkbox"
-                name="rememberMe"
-                checked={formData.rememberMe}
-                onChange={handleChange}
-              />
-              Remember Me
-            </label>
-          </div>
-
-          <button type="submit" className="signup-button">
-            Sign Up
-          </button>
+          <button type="submit" className="signup-button">Sign Up</button>
         </form>
 
-        {/* Sign In Link */}
         <p className="signin-text">
           Already have an account?{" "}
-          <span className="signin-link" onClick={handleSignIn}>
+          <span className="signin-link" onClick={() => navigate("/")}>
             Sign In
           </span>
         </p>

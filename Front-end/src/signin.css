@@ -1,70 +1,164 @@
-body.login-page{
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-image: url("./assets/lawbg.jpg");
-    background-size: contain;
-    background-size: cover;
-    background-repeat: no-repeat;
+.auth-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
 }
-  
-.login-box {
-    font-family: "BenchNine", serif;
-    border: 1px solid rgb(0, 0, 0);
-    background: rgb(255, 255, 255);
-    width: 400px; 
-    max-height: 650px; 
-    margin: 50px auto;
+
+.auth-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.auth-visual-section {
+    flex: 1;
+    background: linear-gradient(225deg, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 50px;
     text-align: center;
-    border-radius: 15px;
-    padding: 30px; 
-    font-weight: 300;
 }
 
-img {
-    margin: 20px;
+.auth-visual-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
-.fp {
-    text-align: start;
+.auth-visual-section p {
+    font-size: 1rem;
+    max-width: 350px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.auth-form-section {
+    flex: 1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+}
+
+.auth-logo {
+    max-width: 180px;
+    margin-bottom: 40px;
+    align-self: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: #6a11cb;
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+}
+
+.auth-forgot-password {
+    text-align: right;
+    color: #6a11cb;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.auth-submit-button {
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.auth-submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    color: #a0a0a0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.auth-divider:not(:empty)::before {
+    margin-right: 20px;
+}
+
+.auth-divider:not(:empty)::after {
+    margin-left: 20px;
+}
+
+.auth-alternate-button {
+    background: transparent;
+    color: #6a11cb;
+    border: 2px solid #6a11cb;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-alternate-button:hover {
+    background: #6a11cb;
+    color: white;
+}
+
+.auth-error {
+    color: #ff6b6b;
+    text-align: center;
+    margin-bottom: 20px;
     font-size: 15px;
-    margin-left: 50px;
 }
 
-.i1, .i2 {
-    margin: 10px;
-    width: 400px;
-    height: 50px;
-    border: #c1601c;
-    box-shadow: 2px 2px 5px #DB6B1A;
-}
-
-.loginb {
-    width: 400px;
-    height: 50px;
-    border: none;
-    border-radius: 35px;
-    background-color: #9956C5;
-    color: white;
-    box-shadow: 2px 2px 5px #000000;
-    font-family: "BenchNine", serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 25px;
-    margin: 10px;
-}
-
-.signupb {
-    width: 400px;
-    height: 50px;
-    border: none;
-    border-radius: 35px;
-    background-color: black;
-    color: white;
-    box-shadow: 2px 2px 5px #000000;
-    font-family: "BenchNine", serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 25px;
-    margin: 10px;
+@media (max-width: 1024px) {
+    .auth-container {
+        flex-direction: column;
+    }
+    
+    .auth-visual-section,
+    .auth-form-section {
+        flex: none;
+        width: 100%;
+        padding: 40px;
+    }
 }
