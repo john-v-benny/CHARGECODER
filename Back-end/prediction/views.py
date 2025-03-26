@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 # Load model and tokenizer
-MODEL_PATH = 'C:\\Users\\ashis\\Downloads\\CHARGECODER\\Back-end\\fine_tuned_bert_cybercrime'
+MODEL_PATH = 'D:\\test project\\CHARGECODER\\Back-end\\fine_tuned_bert_cybercrime'
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
 model.eval()

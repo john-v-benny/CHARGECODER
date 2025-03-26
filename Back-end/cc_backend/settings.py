@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'legal_db',
     'rest_framework',
     'corsheaders',
+    'rest_framework_simplejwt',
     
 ]
 
@@ -136,3 +137,16 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+# Token lifetimes (customize as needed)
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+}

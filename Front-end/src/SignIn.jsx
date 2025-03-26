@@ -4,49 +4,102 @@ import './SignIn.css';
 import logo_cc from './assets/logo_cc.png';
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    navigate('/landing');
-  };
+    setError('');
 
-  const handleSignUp = () => {
-    navigate('/signup'); // Navigate to Signup page
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/auth/login/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('accessToken', data.access);
+        localStorage.setItem('refreshToken', data.refresh);
+        navigate('/landing');
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error || 'Invalid credentials');
+      }
+    } catch (error) {
+      setError('Server error. Please try again.');
+    }
   };
 
   return (
-    <body class="login-page">
-      <div class="login-container">
-    <div className="login-box">
-      <img src={logo_cc} alt="Logo" />
-      <form onSubmit={handleSignIn}>
-        <input 
-          className="i1"
-          type="email"
-          value={email}
-          placeholder="     email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <input 
-          className="i2"
-          type="password"
-          value={password}
-          placeholder="     password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <p className="fp">FORGOT PASSWORD?</p>
-        <button className="loginb" type="submit">SIGN IN</button>
-        <p>OR</p>
-        <button className="signupb" type="button" onClick={handleSignUp}>SIGN UP</button>
-      </form>
+    <div className="auth-wrapper">
+      <div className="auth-container">
+        <div className="auth-visual-section">
+          <h2>Welcome Back!</h2>
+          <p>
+            Unlock a world of possibilities. Sign in to access your personalized 
+            dashboard and continue your journey.
+          </p>
+        </div>
+        
+        <div className="auth-form-section">
+          <img 
+            src={logo_cc} 
+            alt="Logo" 
+            className="auth-logo" 
+          />
+          
+          {error && <p className="auth-error">{error}</p>}
+          
+          <form onSubmit={handleSignIn} className="auth-form">
+            <input
+              className="auth-input"
+              type="text"
+              value={username}
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <input
+              className="auth-input"
+              type="password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            
+            <p 
+              className="auth-forgot-password" 
+              onClick={() => navigate('/forgot-password')}
+            >
+              Forgot Password?
+            </p>
+            
+            <button 
+              className="auth-submit-button" 
+              type="submit"
+            >
+              Sign In
+            </button>
+          </form>
+          
+          <div className="auth-divider">OR</div>
+          
+          <button 
+            className="auth-alternate-button" 
+            type="button" 
+            onClick={() => navigate('/signup')}
+          >
+            Create New Account
+          </button>
+        </div>
+      </div>
     </div>
-    </div>
-    </body>
   );
-}
+};
 
 export default SignIn;
