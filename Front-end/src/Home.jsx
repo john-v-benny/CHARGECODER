@@ -1,98 +1,157 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
-import logoImage from './assets/logo.png';
-import legalSectionsImage from './assets/legal_sections.png';
-import askAwayImage from './assets/ask_away.png';
-import aboutUsImage from './assets/about_us.png';
-import scalesWelcomeImage from './assets/scales.png';
-import scalesLegalImage from './assets/man.png';
-import cybercrimeKeyboardImage from './assets/keyboard.png';
-import hoodedSecurityImage from './assets/hooded.png';
-import skullUniformityImage from './assets/skull.png';
-import padlockImage from './assets/padlock.png';
 
-const Home = () => {
+const LegalHomepage = () => {
   const navigate = useNavigate();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-  const containerRef = useRef(null);
-  const isAnimating = useRef(false);
+  const particleCanvasRef = useRef(null);
 
-  const images = [
-    { src: scalesWelcomeImage, text: 'WELCOME\nTO YOUR PERSONALIZED LAW GUIDE', isPurple: true },
-    { src: scalesLegalImage, text: 'got your phone stolen? Social media account hacked? Copyright issues? Fake accounts? Cyber bullying? Transactions without your knowledge?\nanything related to cyber crime and it act (2000) offences, we provide you with all the legal assistance you need' },
-    { src: cybercrimeKeyboardImage, text: 'CYBER CRIME\nCan be integrated with existing legal and law enforcement systems to streamline workflows and improve efficiency.' },
-    { src: hoodedSecurityImage, text: 'Ensures that sensitive case details and user data are handled securely, complying with data protection laws.' },
-    { src: skullUniformityImage, text: 'Ensures uniformity in the application of cybercrime laws, minimizing biases and inconsistencies in charge assignment.' },
-    { src: padlockImage, text: 'Reduces the risk of exposing sensitive personal information, even within the system.\nnow go onto sign in page to get started' },
+  const features = [
+    {
+      icon: '🛡️',
+      title: "Cyber Crime Section Detection",
+      description: "Advanced machine learning algorithms analyze legal documents to precisely identify and classify cyber crime sections with unprecedented accuracy."
+    },
+    {
+      icon: '📊',
+      title: "Real-time Legal Insights",
+      description: "Instant analysis of digital legal documents, providing comprehensive insights into potential cyber crime classifications in milliseconds."
+    },
+    {
+      icon: '🧠',
+      title: "BERT-Powered Prediction",
+      description: "Leveraging fine-tuned BERT models to deliver state-of-the-art natural language processing for legal document interpretation."
+    }
   ];
 
   useEffect(() => {
-    const handleWheel = (event) => {
-      event.preventDefault();
-      if (isAnimating.current) return;
+    const canvas = particleCanvasRef.current;
+    const ctx = canvas.getContext('2d');
+    
+    // Resize canvas
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    
+    // Create particles
+    const particles = [];
+    const particleCount = 150;
 
-      isAnimating.current = true;
-      if (event.deltaX > 0 || event.deltaY > 0) {
-        setCurrentIndex((prev) => Math.min(prev + 1, images.length - 1));
-      } else if (event.deltaX < 0 || event.deltaY < 0) {
-        setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    class Particle {
+      constructor() {
+        this.reset();
       }
-      setTimeout(() => {
-        isAnimating.current = false;
-      }, 700);
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 2;
+        this.speedY = (Math.random() - 0.5) * 2;
+        this.color = `rgba(255,255,255,${Math.random() * 0.3})`;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    // Initialize particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      requestAnimationFrame(animate);
     };
 
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
-  }, [images.length]);
+    // Event listeners
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Start animation
+    animate();
 
-  const handleMouseMove = (event) => {
-    const mouseX = event.clientX;
-    setIsSidebarVisible(mouseX <= 100);
-  };
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
 
   return (
-    <body class="home-page">
-    <div className="home" onMouseMove={handleMouseMove}>
-      <div className={`logo-top-left ${isSidebarVisible ? 'visible' : ''}`}>
-        <img src={logoImage} alt="CHARGE Coder" />
-      </div>
+    <div className="legal-homepage">
+      <div className="background-gradient"></div>
+      <canvas 
+        ref={particleCanvasRef} 
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          zIndex: -1,
+          opacity: 0.5
+        }}
+      ></canvas>
 
-      <button className="login-btn" onClick={(handleSigninClick) => navigate('/signin')}>LOGIN/SIGNIN</button>
+      <header className="header">
+        <div className="logo">
+          <span className="logo-icon">🎯</span>
+          Legal Section Predictor
+        </div>
+        <nav className="navigation">
+          <a href="#home" className="nav-item">Home</a>
+          <a href="#features" className="nav-item">Features</a>
+          <a href="#technology" className="nav-item">Technology</a>
+        </nav>
+        <button className="cta-button primary-cta" onClick={() => navigate('/signin')}>Login</button>
+      </header>
 
-      <nav className={`sidebar ${isSidebarVisible ? 'visible' : ''}`}>
-        <button className="nav-btn legal-btn" onClick={() => console.log('Navigating to Legal Sections...')}>
-          <img src={legalSectionsImage} alt="legal sections" />
-        </button>
-        <button className="nav-btn ask-btn">
-          <img src={askAwayImage} alt="ASK AWAY..." />
-        </button>
-        <button className="nav-btn about-btn" onClick={() => console.log('Navigating to About Us...')}>
-          <img src={aboutUsImage} alt="about us" />
-        </button>
-      </nav>
+      <main className="main-content">
+        <section className="hero-section">
+          <div className="hero-subtitle">CHARGECODER</div>
+          <h1 className="hero-title">AI-Powered Legal Section Detection</h1>
+          <p className="hero-description">
+            Our cutting-edge machine learning solution uses fine-tuned BERT models to accurately predict and classify legal sections in cyber crime documents, providing unprecedented insights and efficiency.
+          </p>
+          <div className="cta-buttons">
+            <button className="cta-button primary-cta">
+              📖 Explore Solution
+            </button>
+            <button className="cta-button secondary-cta">
+              📊 View Methodology
+            </button>
+          </div>
+        </section>
 
-      <main className="main-content" ref={containerRef}>
-        <div className="images-container">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`image-slide ${index === currentIndex ? 'center' : index < currentIndex ? 'left' : 'right'}`}
-              style={{ transition: 'transform 0.7s ease, opacity 0.7s ease' }}
-            >
-              <div className="image-wrapper" style={{ backgroundImage: `url(${image.src})` }} />
-              <div className={`image-text ${image.isPurple ? 'purple-text' : ''}`} style={{ opacity: index === currentIndex ? 1 : 0 }}>
-                {image.text}
-              </div>
+        <div className="features-grid">
+          {features.map((feature, index) => (
+            <div key={index} className="feature-card">
+              <div className="feature-icon">{feature.icon}</div>
+              <h3 className="feature-title">{feature.title}</h3>
+              <p className="feature-description">{feature.description}</p>
             </div>
           ))}
         </div>
       </main>
     </div>
-  </body>
   );
 };
 
-export default Home;
+export default LegalHomepage;
