@@ -41,7 +41,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 20px 5%;
-  background: rgba(0,0,0,0.1);
+  background: rgb(255, 255, 255)
 }
 
 .logo {
@@ -50,6 +50,12 @@ body, html {
   font-size: 24px;
   font-weight: bold;
   color: white;
+}
+
+.logo img {
+  width: 150px; /* Adjust size as needed */
+  height: auto;
+  object-fit: contain;
 }
 
 .logo-icon {
@@ -68,7 +74,7 @@ body, html {
 }
 
 .nav-item:hover {
-  color: #FF4081;
+  color: #db2e4b;
 }
 
 /* Main Content */
@@ -112,7 +118,7 @@ body, html {
 }
 
 .cta-button {
-  padding: 12px 25px;
+  padding: 13px 28px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -123,7 +129,7 @@ body, html {
 }
 
 .primary-cta {
-  background-color: #FF4081;
+  background-color: #4003d0ca;
   color: #ffffff;
 }
 

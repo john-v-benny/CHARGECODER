@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import logo from './assets/logo.png';
 import "./Landing.css";
 
 const Landing = () => {
@@ -211,7 +212,10 @@ const Landing = () => {
       <div className={`side-navigation ${sidebarOpen ? 'open' : ''}`}>
         <div className="side-nav-content">
           <div className="nav-section-header">
-            <h3>ChargeCoder</h3>
+             <img 
+                  src={logo} 
+                  className="logo-image"
+                />
             <button onClick={toggleSidebar} className="close-sidebar">
               ✕
             </button>
@@ -252,7 +256,7 @@ const Landing = () => {
             onClick={handleSearch}
             disabled={isLoading}
           >
-            {isLoading ? "Analyzing... 🔍" : "Analyze Scenario"}
+            {isLoading ? "Analyzing... " : "Analyze Scenario"}
           </button>
         </div>
 
@@ -264,14 +268,14 @@ const Landing = () => {
 
         {prediction && (
           <div className="result-card prediction-result">
-            <h3>Predicted Section 🎯</h3>
+            <h3>Predicted Section </h3>
             <p>{prediction}</p>
           </div>
         )}
 
         {sectionDetails && (
           <div className="result-card section-details">
-            <h3>Section Details 📜</h3>
+            <h3>Section Details </h3>
             <div className="details-grid">
               <div>
                 <strong>Title:</strong>
@@ -291,7 +295,7 @@ const Landing = () => {
 
         {error && (
           <div className="result-card error-result">
-            <p>🚨 {error}</p>
+            <p>{error}</p>
           </div>
         )}
       </div>

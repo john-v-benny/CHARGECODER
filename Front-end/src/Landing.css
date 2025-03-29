@@ -4,7 +4,7 @@
   --app-background-color: #f8faff;
   --app-text-color: #000000;
   --app-accent-color: #3d51c3;
-  --app-sidebar-width: 280px;
+  --app-sidebar-width: 350px;
 }
 
 * {
@@ -36,6 +36,12 @@ body {
   background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%);
 }
 
+.logo img {
+  width: 90px; /* Adjust size as needed */
+  height: auto;
+  object-fit: contain;
+}
+
 .sidebar-toggle {
   position: absolute;
   top: 20px;
@@ -52,7 +58,7 @@ body {
 .side-navigation {
   position: fixed;
   top: 0;
-  left: -300px;
+  left: calc(-1 * var(--app-sidebar-width));
   width: var(--app-sidebar-width);
   height: 100%;
   background: white;
@@ -109,7 +115,7 @@ body {
 
 .nav-button:hover {
   background-color: var(--app-primary-color);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .nav-icon {

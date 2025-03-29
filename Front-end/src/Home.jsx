@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from './assets/logo.png';
 import './Home.css';
 
 const LegalHomepage = () => {
@@ -8,17 +9,17 @@ const LegalHomepage = () => {
 
   const features = [
     {
-      icon: '🛡️',
+      
       title: "Cyber Crime Section Detection",
       description: "Advanced machine learning algorithms analyze input scenarios to precisely identify and classify cyber crime sections with unprecedented accuracy."
     },
     {
-      icon: '📊',
+     
       title: "Section  Details",
       description: "An easy way to retrieve section details and punishments within milliseconds making the work easy for everyone."
     },
     {
-      icon: '🧠',
+      
       title: "BERT-Powered Prediction",
       description: "Leveraging fine-tuned BERT models to deliver state-of-the-art natural language processing for input crime scene interpretation."
     }
@@ -111,17 +112,16 @@ const LegalHomepage = () => {
       ></canvas>
 
       <header className="header">
-        <div className="logo">
-          <span className="logo-icon">🎯</span>
-          Legal Section Predictor
-        </div>
+      <img 
+      src={logo} 
+      className="logo-image"
+    />
         <button className="cta-button primary-cta" onClick={() => navigate('/signin')}>Login</button>
       </header>
 
       <main className="main-content">
         <section className="hero-section">
-          <div className="hero-subtitle">CHARGECODER</div>
-          <h1 className="hero-title">AI-Powered Legal Section Detection</h1>
+          <h1 className="hero-title">AI-Powered Legal Section Prediction</h1>
           <p className="hero-description">
             A legal section predictor to accurately predict and classify legal sections in user input crime scenerios, providing unprecedented insights and efficiency.
           </p>
