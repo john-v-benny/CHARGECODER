@@ -10,17 +10,17 @@ const LegalHomepage = () => {
     {
       icon: '🛡️',
       title: "Cyber Crime Section Detection",
-      description: "Advanced machine learning algorithms analyze legal documents to precisely identify and classify cyber crime sections with unprecedented accuracy."
+      description: "Advanced machine learning algorithms analyze input scenarios to precisely identify and classify cyber crime sections with unprecedented accuracy."
     },
     {
       icon: '📊',
-      title: "Real-time Legal Insights",
-      description: "Instant analysis of digital legal documents, providing comprehensive insights into potential cyber crime classifications in milliseconds."
+      title: "Section  Details",
+      description: "An easy way to retrieve section details and punishments within milliseconds making the work easy for everyone."
     },
     {
       icon: '🧠',
       title: "BERT-Powered Prediction",
-      description: "Leveraging fine-tuned BERT models to deliver state-of-the-art natural language processing for legal document interpretation."
+      description: "Leveraging fine-tuned BERT models to deliver state-of-the-art natural language processing for input crime scene interpretation."
     }
   ];
 
@@ -115,11 +115,6 @@ const LegalHomepage = () => {
           <span className="logo-icon">🎯</span>
           Legal Section Predictor
         </div>
-        <nav className="navigation">
-          <a href="#home" className="nav-item">Home</a>
-          <a href="#features" className="nav-item">Features</a>
-          <a href="#technology" className="nav-item">Technology</a>
-        </nav>
         <button className="cta-button primary-cta" onClick={() => navigate('/signin')}>Login</button>
       </header>
 
@@ -128,15 +123,9 @@ const LegalHomepage = () => {
           <div className="hero-subtitle">CHARGECODER</div>
           <h1 className="hero-title">AI-Powered Legal Section Detection</h1>
           <p className="hero-description">
-            Our cutting-edge machine learning solution uses fine-tuned BERT models to accurately predict and classify legal sections in cyber crime documents, providing unprecedented insights and efficiency.
+            A legal section predictor to accurately predict and classify legal sections in user input crime scenerios, providing unprecedented insights and efficiency.
           </p>
           <div className="cta-buttons">
-            <button className="cta-button primary-cta">
-              📖 Explore Solution
-            </button>
-            <button className="cta-button secondary-cta">
-              📊 View Methodology
-            </button>
           </div>
         </section>
 
