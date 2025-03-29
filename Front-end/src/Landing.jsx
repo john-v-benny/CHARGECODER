@@ -114,19 +114,7 @@ const Landing = () => {
 
   return (
     <div className="legal-analyzer-container">
-      <div className="background-animation">
-        {[...Array(20)].map((_, index) => (
-          <div 
-            key={index} 
-            className="floating-element" 
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${10 + Math.random() * 10}s`
-            }}
-          ></div>
-        ))}
-      </div>
+      <div className="app-background"></div>
 
       <div className="sidebar-toggle" onClick={toggleSidebar}>
         <span className="sidebar-icon">☰</span>
@@ -155,14 +143,14 @@ const Landing = () => {
 
       <div className="main-content-wrapper">
         <div className="greeting-section">
-          <h1 className="animated-text">{greeting}</h1>
-          <p>Explore legal scenarios and get instant IT Act insights </p>
+          <h1>{greeting}</h1>
+          <p>Explore legal scenarios and get instant IT Act insights</p>
         </div>
 
         <div className="search-container">
           <input 
             type="text"
-            placeholder="Describe your legal scenario... "
+            placeholder="Describe your legal scenario..."
             value={query}
             onChange={handleInputChange}
             className="scenario-input"
@@ -172,7 +160,7 @@ const Landing = () => {
             onClick={handleSearch}
             disabled={isLoading}
           >
-            {isLoading ? "Analyzing... 🔍" : "Analyze Scenario "}
+            {isLoading ? "Analyzing... 🔍" : "Analyze Scenario"}
           </button>
         </div>
 
@@ -183,14 +171,14 @@ const Landing = () => {
         )}
 
         {prediction && (
-          <div className="result-card prediction-result animate-slide-in">
+          <div className="result-card prediction-result">
             <h3>Predicted Section 🎯</h3>
             <p>{prediction}</p>
           </div>
         )}
 
         {sectionDetails && (
-          <div className="result-card section-details animate-slide-in">
+          <div className="result-card section-details">
             <h3>Section Details 📜</h3>
             <div className="details-grid">
               <div>
@@ -210,7 +198,7 @@ const Landing = () => {
         )}
 
         {error && (
-          <div className="result-card error-result animate-slide-in">
+          <div className="result-card error-result">
             <p>🚨 {error}</p>
           </div>
         )}
