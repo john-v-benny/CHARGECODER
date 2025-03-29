@@ -1,9 +1,9 @@
 :root {
-  --app-primary-color: #4a4fee;
+  --app-primary-color: #131beb;
   --app-secondary-color: #7b68ee;
   --app-background-color: #f8faff;
-  --app-text-color: #2c3e50;
-  --app-accent-color: #5c6bc0;
+  --app-text-color: #000000;
+  --app-accent-color: #3d51c3;
   --app-sidebar-width: 280px;
 }
 

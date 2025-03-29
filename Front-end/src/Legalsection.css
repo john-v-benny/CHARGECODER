@@ -1,6 +1,6 @@
 body.legal-page{
   font-family: Arial, sans-serif;
-   background: linear-gradient(135deg, #090c63 0%, #a81dca 100%); /* Change this to any background color */
+   background:linear-gradient(225deg, #6a11cb 0%, #2575fc 100%);
    min-height: 100vh;
    display: flex;
    justify-content: center;
@@ -117,7 +117,7 @@ body.legal-page{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgb(30, 3, 113);
+    background-color: rgb(76, 73, 248);
     border: none;
     border-radius: 0px;
     font-size: 16px;
@@ -126,6 +126,6 @@ body.legal-page{
   }
   
   .home-button:hover {
-    background-color: #0056b3;
+    background-color: linear-gradient(225deg, #6a11cb 0%, #2575fc 100%);
   }
   

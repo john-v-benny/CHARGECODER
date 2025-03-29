@@ -196,6 +196,10 @@ const Landing = () => {
     navigate("/legal");
   };
 
+  const handleReportClick = () => {
+    window.open("https://cybercrime.gov.in/", "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="legal-analyzer-container">
       <div className="app-background"></div>
@@ -220,6 +224,10 @@ const Landing = () => {
             <button onClick={handleLegalClick} className="nav-button">
               <span className="nav-icon">⚖️</span>
               <span className="nav-text">Legal Section</span>
+            </button>
+            <button onClick={handleReportClick} className="nav-button">
+              <span className="nav-icon">🛑</span>
+              <span className="nav-text">Report Cybercrime</span>
             </button>
           </div>
         </div>
