@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Landing.css";
@@ -8,21 +8,47 @@ const Landing = () => {
   const [prediction, setPrediction] = useState(null);
   const [sectionDetails, setSectionDetails] = useState(null);
   const [error, setError] = useState(null);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true); // Initially open
+  const [greeting, setGreeting] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  // Time-based greeting logic
+  useEffect(() => {
+    const hour = new Date().getHours();
+    let timeGreeting = "";
+
+    if (hour < 12) {
+      timeGreeting = "Good Morning";
+    } else if (hour < 17) {
+      timeGreeting = "Good Afternoon";
+    } else {
+      timeGreeting = "Good Evening";
+    }
+
+    setGreeting(`${timeGreeting}, Legal Explorer`);
+  }, []);
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
+    // Reset results when input changes
+    setPrediction(null);
+    setSectionDetails(null);
+    setError(null);
   };
 
   const handleSearch = async () => {
     if (!query.trim()) {
-      alert("Please enter text to predict.");
+      alert("Please enter a scenario to predict.");
       return;
     }
 
+    setIsLoading(true);
+    setPrediction(null);
+    setSectionDetails(null);
+    setError(null);
+
     try {
-      // Step 1: Get the predicted section from the model
       const predictionResponse = await fetch("http://127.0.0.1:8000/api/predict/", {
         method: "POST",
         headers: {
@@ -38,14 +64,11 @@ const Landing = () => {
       const predictionData = await predictionResponse.json();
       setPrediction(predictionData.predicted_section);
 
-      // Step 2: Extract the IT Act section from the prediction
       const itActSection = predictionData.predicted_section
-        .split(", ") // Split into ["BNS: Section 332", "IT Act: Section 70"]
-        .find((section) => section.startsWith("IT Act")); // Find the IT Act section
+        .split(", ")
+        .find((section) => section.startsWith("IT Act"));
 
       if (itActSection) {
-        // Step 3: Fetch details of the IT Act section
-        //const sectionName = itActSection.replace("IT Act: ", "IT Act "); // Convert "IT Act: Section 70" to "IT Act Section 70"
         const ITsection = itActSection.split(": ").find((section) => section.startsWith("Section"));
         const sectionNo = ITsection.replace("Section ","")
         const detailsResponse = await axios.get(
@@ -64,7 +87,6 @@ const Landing = () => {
           setError("No details found for this section.");
         }
       } else {
-        // If no IT Act section is found in the prediction
         setSectionDetails(null);
         setError("No IT Act section found in the prediction.");
       }
@@ -73,6 +95,8 @@ const Landing = () => {
       setPrediction(null);
       setSectionDetails(null);
       setError("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -89,52 +113,95 @@ const Landing = () => {
   };
 
   return (
-    <div className="container">
-      {/* Sidebar Toggle Button */}
-      <button className="dashboard-button" onClick={toggleSidebar}></button>
+    <div className="legal-analyzer-container">
+      <div className="app-background"></div>
 
-      {/* Sidebar */}
-      <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-        <button className="close-sidebar" onClick={toggleSidebar}>&times;</button>
-        <button className="sidebar-button" onClick={handleProfileClick}>Profile</button>
-        <button className="sidebar-button" onClick={handleLegalClick}>Legal Section</button>
+      <div className="sidebar-toggle" onClick={toggleSidebar}>
+        <span className="sidebar-icon">☰</span>
       </div>
 
-      {/* Main Content */}
-      <div className="main-content">
-        {/* Search Box */}
-        <div className="searchbox_cont">
-          <input
-            type="text"
-            placeholder="Type here"
-            value={query}
-            onChange={handleInputChange}
-            className="search-input"
-            aria-label="Search input"
-          />
-          <button className="search-button" onClick={handleSearch}>Search</button>
+      <div className={`side-navigation ${sidebarOpen ? 'open' : ''}`}>
+        <div className="side-nav-content">
+          <div className="nav-section-header">
+            <h3>ChargeCoder</h3>
+            <button onClick={toggleSidebar} className="close-sidebar">
+              ✕
+            </button>
+          </div>
+          <div className="nav-section-buttons">
+            <button onClick={handleProfileClick} className="nav-button">
+              <span className="nav-icon">👤</span>
+              <span className="nav-text">Profile</span>
+            </button>
+            <button onClick={handleLegalClick} className="nav-button">
+              <span className="nav-icon">⚖️</span>
+              <span className="nav-text">Legal Section</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="main-content-wrapper">
+        <div className="greeting-section">
+          <h1>{greeting}</h1>
+          <p>Explore legal scenarios and get instant IT Act insights</p>
         </div>
 
-        {/* Display Prediction */}
+        <div className="search-container">
+          <input 
+            type="text"
+            placeholder="Describe your legal scenario..."
+            value={query}
+            onChange={handleInputChange}
+            className="scenario-input"
+          />
+          <button 
+            className="analyze-button professional-button"
+            onClick={handleSearch}
+            disabled={isLoading}
+          >
+            {isLoading ? "Analyzing... 🔍" : "Analyze Scenario"}
+          </button>
+        </div>
+
+        {isLoading && (
+          <div className="loading-spinner">
+            <div className="spinner"></div>
+          </div>
+        )}
+
         {prediction && (
-          <div className="prediction-box">
-            <h3>Predicted Section:</h3>
+          <div className="result-card prediction-result">
+            <h3>Predicted Section 🎯</h3>
             <p>{prediction}</p>
           </div>
         )}
 
-        {/* Display Section Details (if available) */}
         {sectionDetails && (
-          <div className="details-box">
-            <h3>Section Details:</h3>
-            <p><strong>Title:</strong> {sectionDetails.title}</p>
-            <p><strong>Description:</strong> {sectionDetails.description}</p>
-            <p><strong>Punishments:</strong> {sectionDetails.punishments}</p>
+          <div className="result-card section-details">
+            <h3>Section Details 📜</h3>
+            <div className="details-grid">
+              <div>
+                <strong>Title:</strong>
+                <p>{sectionDetails.title}</p>
+              </div>
+              <div>
+                <strong>Description:</strong>
+                <p>{sectionDetails.description}</p>
+              </div>
+              <div>
+                <strong>Punishments:</strong>
+                <p>{sectionDetails.punishments}</p>
+              </div>
+            </div>
           </div>
         )}
 
-        {/* Display Error Message */}
-        {error && <p className="error-message">{error}</p>}
+        {error && (
+          <div className="result-card error-result">
+            <p>🚨 {error}</p>
+          </div>
+        )}
       </div>
     </div>
   );
