@@ -91,7 +91,7 @@ Before you begin, ensure you have the following installed:
    ```bash
    npm start
    ```
-   The frontend will be available at [http://localhost:3000/](http://localhost:3000/).
+   The frontend will be available at [http://localhost:3000/](http://localhost:5173/).
 
 ---
 
@@ -110,7 +110,7 @@ Before you begin, ensure you have the following installed:
    ```
 
 3. **Access the Application**:
-   Open your browser and go to [http://localhost:3000/](http://localhost:3000/) to view the frontend.
+   Open your browser and go to [http://localhost:3000/](http://localhost:5173/) to view the frontend.
    
    The backend API will be available at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
