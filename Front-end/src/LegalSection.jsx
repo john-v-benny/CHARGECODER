@@ -15,9 +15,9 @@ const LegalSection = () => {
       
       if (response.data.length > 0) {
         setResult({
-          title: response.data[0].legal_section,
-          description: response.data[0].section_description,
-          punishments: response.data[0].punishments,
+          punishment: response.data[0].punishment,
+          description: response.data[0].description,
+          cases: response.data[0].cases,
         });
         setError(null);
       } else {
@@ -52,7 +52,7 @@ const LegalSection = () => {
             <div className="result-container">
               <h3>{result.title}</h3>
               <p><strong>Description:</strong> {result.description}</p>
-              <p><strong>Punishments:</strong> {result.punishments}</p>
+              <p><strong>Punishments:</strong> {result.punishment}</p>
             </div>
           )}
 

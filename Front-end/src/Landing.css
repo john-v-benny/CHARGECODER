@@ -36,14 +36,14 @@ body {
   background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%);
 }
 
-.logo img {
-  width: 90px; /* Adjust size as needed */
+.logo-image {
+  width: 90px;
   height: auto;
   object-fit: contain;
 }
 
 .sidebar-toggle {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   cursor: pointer;
@@ -85,12 +85,6 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-}
-
-.nav-section-header h3 {
-  font-size: 1.5rem;
-  color: var(--app-primary-color);
-  font-weight: 600;
 }
 
 .nav-section-buttons {
@@ -138,18 +132,23 @@ body {
 
 .main-content-wrapper {
   background-color: rgba(255, 255, 255, 0.95);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
+  height: 100vh;
   width: 100%;
   position: absolute;
   left: 0;
   z-index: 1;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
+
+.content-scroll-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 2rem;
+  min-height: 100%;
+  position: relative;
 }
 
 .side-navigation.open + .main-content-wrapper {
@@ -157,10 +156,47 @@ body {
   left: var(--app-sidebar-width);
 }
 
-.greeting-section {
-  margin-bottom: 40px;
+/* New search container wrapper styles */
+.search-container-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Centered position (initial) */
+.search-container-wrapper.centered {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px; /* Adjust this for perfect vertical centering */
+}
+
+/* Sticky-top position (after analysis) */
+.search-container-wrapper.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 15px 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.search-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 800px;
   width: 100%;
+}
+
+.greeting-section {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .greeting-section h1 {
@@ -173,6 +209,7 @@ body {
   font-size: 1.1rem;
   color: var(--app-text-color);
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .search-container {
@@ -216,16 +253,26 @@ body {
   cursor: not-allowed;
 }
 
+.results-section {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-top: 30px; /* Add some space between search and results */
+}
+
 .result-card {
   background: white;
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  max-width: 800px;
   width: 100%;
   text-align: left;
   opacity: 1;
+  overflow: auto;
 }
 
 .result-card h3 {
@@ -258,6 +305,31 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.famous-cases-section {
+  grid-column: span 2;
+}
+
+.cases-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.case-item {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
 @media (max-width: 768px) {
   .side-navigation {
     width: 100%;
@@ -275,18 +347,36 @@ body {
     pointer-events: none;
   }
 
+  .search-container-wrapper.sticky-top {
+    padding: 10px;
+  }
+
   .search-container {
     flex-direction: column;
-    border-radius: 50px;
+    border-radius: 12px;
   }
   
   .scenario-input, .professional-button {
     width: 100%;
     padding: 15px;
-    border-radius: 50px;
+    border-radius: 0;
+  }
+
+  .professional-button {
+    border-radius: 0 0 12px 12px;
+  }
+
+  .scenario-input {
+    border-radius: 12px 12px 0 0;
   }
   
   .greeting-section h1 {
     font-size: 2rem;
+  }
+  
+  /* Adjust centered position for mobile */
+  .search-container-wrapper.centered {
+    height: 80vh;
+    margin-top: 0;
   }
 }
