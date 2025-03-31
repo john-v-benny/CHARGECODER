@@ -43,7 +43,7 @@ Ensure that you have the following installed:
 2. Load initial data into the database:
    - Try using the following command first:
      ```bash
-     python manage.py loaddata legal_db/ITSECTIONS.json
+     python manage.py loaddata legal_db/IT_SECTIONS.json
      ```
    - If the above command does not work, you can load the data manually using the Python shell:
      ```bash
@@ -54,7 +54,7 @@ Ensure that you have the following installed:
      import json
      from legal_db.models import LegalSection
      
-     with open('legal_db/ITSECTIONS.json') as f:
+     with open('legal_db/IT_SECTIONS.json') as f:
          data = json.load(f)
          for item in data:
              LegalSection.objects.create(**item['fields'])
