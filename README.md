@@ -1,152 +1,29 @@
 # CHARGECODER
 
-The project addresses the need for an automated system to convert user statements into legally compliant charges, along with the corresponding punishments under India's Cyber Crime laws, BNs and IT Act, 2000.
+![Home Page](https://github.com/ASHISH-28-02/CHARGECODER/blob/main/UI/WhatsApp%20Image%202025-03-31%20at%2013.02.38.jpeg)
 
-# FEATURES
-- Provides Corresponding leagal sections and its details for the user input
-- Displays the punishments corresponding to the sections identified
-- User can get more details on the legal sections
+ChargeCoder is an innovative project aimed at automating the assignment of legal charges in cybercrime cases by leveraging Natural Language Processing (NLP) techniques. The initiative addresses the challenges posed by the complexity and evolving nature of cyber laws under the IT Act and the BNS, where manual interpretation often leads to inconsistencies and errors. By employing advanced machine learning models, particularly the BERT Tokenizer and BERT Sequence Classifier, ChargeCoder ensures accurate and consistent charge prediction based on textual case descriptions. This tool is designed to support legal practitioners, law enforcement agencies, and victims in navigating cyber laws more effectively, thereby enhancing efficiency and promoting fairness in the justice system. While focusing specifically on cases governed by the IT Act and BNS, ChargeCoder streamlines the mapping of offenses to relevant legal provisions, addressing the growing volume and complexity of cybercrime incidents.
 
+## Workflow
+The ChargeCoder system follows a structured workflow that integrates a React frontend, a Django backend, a BERT model for processing, and an SQLite3 database. The user begins by logging in through the frontend, where authentication controls access to two primary features: Scenario-Based Prediction (which predicts the relevant legal section based on a textual description) and Legal Section Search (which retrieves legal details using a section number or keyword).
 
-## **Prerequisites**
+The backend, built using Django, handles prediction requests through a Prediction API that communicates with the BERT model for text preprocessing and legal section classification. Simultaneously, the backend also handles database queries through a Database API, allowing retrieval of legal section details from the SQLite3 database. Data transfer between the frontend and backend is facilitated using JSON via Axios, with CORS ensuring secure cross-origin communication. The final prediction or search result is then displayed to the user, completing the process.
 
-Before you begin, ensure you have the following installed:
+<p align="center">
+<img src="https://github.com/ASHISH-28-02/CHARGECODER/blob/main/UI/WhatsApp%20Image%202025-03-31%20at%2011.31.29%20(1).jpeg" alt="Workflow Diagram" width="600" height="700">
+</p>
 
-- [Node.js](https://nodejs.org/) (for frontend)
-- [Python](https://www.python.org/) (for backend)
-- [Git](https://git-scm.com/)
-- [Pip](https://pip.pypa.io/en/stable/installation/) (Python package manager)
-- [Virtualenv](https://virtualenv.pypa.io/en/latest/) (optional, for Python virtual environment)
+## Project Structure
+- Learn more about the [Frontend](https://github.com/ASHISH-28-02/CHARGECODER/blob/main/Front-end/README.md)
+- Explore details on the [Backend](https://github.com/ASHISH-28-02/CHARGECODER/blob/main/Back-end/README.md)
 
----
+## Contributors
+<p align="center">
+  <a href="https://github.com/Aswini-ks04"><img src="https://github.com/Aswini-ks04.png" width="100" height="100" alt="ASWINI K S"></a>
+  <a href="https://github.com/john-v-benny"><img src="https://github.com/john-v-benny.png" width="100" height="100" alt="JOHN BENNY VARGHESE"></a>
+  <a href="https://github.com/ASHISH-28-02"><img src="https://github.com/ASHISH-28-02.png" width="100" height="100" alt="ASHISH B"></a>
+  <a href="https://github.com/1ISODD"><img src="https://github.com/1ISODD.png" width="100" height="100" alt="SASANK M"></a>
+</p>
 
-## **Backend Setup**
+Feel free to explore the project and contribute !
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo/Back-end
-   ```
-
-2. **Set Up a Virtual Environment (optional but recommended)**:
-   ```bash
-   python -m venv venv
-   ```
-
-3. **Activate the Virtual Environment**:
-   
-   On Windows:
-   ```bash
-   .\venv\Scripts\activate
-   ```
-   
-   On macOS/Linux:
-   ```bash
-   source venv/bin/activate
-   ```
-
-4. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Set Up the Database**:
-   
-   Apply migrations:
-   ```bash
-   python manage.py migrate
-   ```
-   
-   Load fixture data (if applicable):
-   ```bash
-   python manage.py loaddata new_it_act_database.json
-   ```
-
-6. **Create a Superuser (optional, for Django admin access)**:
-   ```bash
-   python manage.py createsuperuser
-   ```
-
-7. **Run the Backend Server**:
-   ```bash
-   python manage.py runserver
-   ```
-   The backend will be available at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
-
----
-
-## **Frontend Setup**
-
-1. **Navigate to the Frontend Folder**:
-   ```bash
-   cd ../Front-end
-   ```
-
-2. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run the Frontend Server**:
-   ```bash
-   npm start
-   ```
-   The frontend will be available at [http://localhost:3000/](http://localhost:5173/).
-
----
-
-## **Running the Project**
-
-1. **Start the Backend**:
-   Navigate to the Back-end folder and run:
-   ```bash
-   python manage.py runserver
-   ```
-
-2. **Start the Frontend**:
-   Navigate to the Front-end folder and run:
-   ```bash
-   npm start
-   ```
-
-3. **Access the Application**:
-   Open your browser and go to [http://localhost:3000/](http://localhost:5173/) to view the frontend.
-   
-   The backend API will be available at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
-
----
-
-## **Contributing**
-
-We welcome contributions! Please follow these steps:
-
-1. **Fork the repository.**
-2. **Create a new branch**:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Commit your changes**:
-   ```bash
-   git commit -m "Add your feature"
-   ```
-4. **Push to the branch**:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. **Open a pull request.**
-
----
-
-## **License**
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
----
-
-## **Contact**
-
-For questions or support, please contact:
-
-- **Your Name**: johnvbenny@gmail.com
-- **Project Link**: https://github.com/john-v-benny/CHARGECODER
-    
