@@ -2,19 +2,7 @@
 
 ## Project Overview
 
-This is the frontend part of a web application built using React and React Router. The application includes the following pages:
-- Home Page:
-  ![Home Page](./screenshots/home.png)
-- Sign In Page:
-  ![Sign In Page](./screenshots/signin.png)
-- Signup Page:
-  ![Signup Page](./screenshots/signup.png)
-- Landing Page:
-  ![Landing Page](./screenshots/landing.png)
-- Profile Page:
-  ![Profile Page](./screenshots/profile.png)
-- Legal Section:
-  ![Legal Section](./screenshots/legal.png)
+This is the frontend part of a web application built using React and React Router.
 
 ## Prerequisites
 Ensure that you have the following installed:
