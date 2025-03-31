@@ -4,17 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Sections</title>
+    <style>
+        .section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .cases {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+    </style>
 </head>
 <body>
     <h1>Legal Sections</h1>
-    <ul>
-        {% for section in sections %}
-            <li>
-                <strong>{{ section.legal_section }}</strong><br>
-                {{ section.section_description }}<br>
-                <em>Punishments:</em> {{ section.punishments }}
-            </li>
-        {% endfor %}
-    </ul>
+    
+    {% for section in sections %}
+        <div class="section">
+            <h2>{{ section.section_number }} - {{ section.title }}</h2>
+            <p><strong>Description:</strong> {{ section.description }}</p>
+            <p><strong>Punishment:</strong> {{ section.punishment }}</p>
+            
+            {% if section.cases.all %}
+                <div class="cases">
+                    <h3>Famous Cases:</h3>
+                    <ul>
+                        {% for case in section.cases.all %}
+                            <li>
+                                <strong>{{ case.case_name }}</strong>: 
+                                {{ case.summary }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
 </body>
 </html>

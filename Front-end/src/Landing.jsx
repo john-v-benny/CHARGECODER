@@ -12,6 +12,7 @@ const Landing = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [greeting, setGreeting] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [searchbarPosition, setSearchbarPosition] = useState("centered"); // New state for searchbar position
   const navigate = useNavigate();
 
   // Comprehensive cybercrime-related keywords
@@ -79,7 +80,8 @@ const Landing = () => {
     'account hacked', 'password stolen', 'login compromised',
     'money stolen', 'funds transferred', 'unauthorized transaction',
     'blackmail', 'sextortion', 'revenge porn', 'morphed image',
-    'fake news', 'misinformation', 'disinformation', 'fake video'
+    'fake news', 'misinformation', 'disinformation', 'fake video','video','private',
+    'porn','pornography',
   ];
 
   // Time-based greeting logic
@@ -103,7 +105,6 @@ const Landing = () => {
     return cybercrimeKeywords.some(keyword => lowerText.includes(keyword.toLowerCase()));
   };
 
-  // Rest of the component remains the same...
   const handleInputChange = (event) => {
     setQuery(event.target.value);
     setPrediction(null);
@@ -124,6 +125,9 @@ const Landing = () => {
       return;
     }
 
+    // Move searchbar to top position
+    setSearchbarPosition("sticky-top");
+    
     setIsLoading(true);
     setPrediction(null);
     setSectionDetails(null);
@@ -155,35 +159,38 @@ const Landing = () => {
         .split(", ")
         .find((section) => section.startsWith("IT Act"));
 
-      if (itActSection) {
-        const ITsection = itActSection.split(": ").find((section) => section.startsWith("Section"));
-        const sectionNo = ITsection.replace("Section ","")
-        const detailsResponse = await axios.get(
-          `http://127.0.0.1:8000/legal/search/?q=${sectionNo}`
-        );
-
-        if (detailsResponse.data.length > 0) {
-          setSectionDetails({
-            title: detailsResponse.data[0].legal_section,
-            description: detailsResponse.data[0].section_description,
-            punishments: detailsResponse.data[0].punishments,
-          });
-          setError(null);
+        if (itActSection) {
+          const ITsection = itActSection.split(": ").find((section) => section.startsWith("Section"));
+          const sectionNo = ITsection.replace("Section ", "");
+          const detailsResponse = await axios.get(
+            `http://127.0.0.1:8000/legal/search/?q=${sectionNo}`
+          );
+  
+          if (detailsResponse.data.length > 0) {
+            const sectionData = detailsResponse.data[0];
+            setSectionDetails({
+              section_number: sectionData.section_number,
+              title: sectionData.title,
+              description: sectionData.description,
+              punishment: sectionData.punishment,
+              cases: sectionData.cases || [] // Include cases array
+            });
+            setError(null);
+          } else {
+            setSectionDetails(null);
+            setError("No legal details found for this section.");
+          }
         } else {
           setSectionDetails(null);
-          setError("No legal details found for this section.");
+          setError("No IT Act section found for this scenario.");
         }
-      } else {
-        setSectionDetails(null);
-        setError("No IT Act section found for this scenario.");
+      } catch (error) {
+        console.error("Error:", error);
+        setError("An error occurred while analyzing your scenario. Please try again.");
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setError("An error occurred while analyzing your scenario. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    };
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -238,66 +245,91 @@ const Landing = () => {
       </div>
 
       <div className="main-content-wrapper">
-        <div className="greeting-section">
-          <h1>{greeting}</h1>
-          <p>Explore legal scenarios and get instant IT Act insights</p>
-        </div>
-
-        <div className="search-container">
-          <input 
-            type="text"
-            placeholder="Describe your legal scenario..."
-            value={query}
-            onChange={handleInputChange}
-            className="scenario-input"
-          />
-          <button 
-            className="analyze-button professional-button"
-            onClick={handleSearch}
-            disabled={isLoading}
-          >
-            {isLoading ? "Analyzing... " : "Analyze Scenario"}
-          </button>
-        </div>
-
-        {isLoading && (
-          <div className="loading-spinner">
-            <div className="spinner"></div>
-          </div>
-        )}
-
-        {prediction && (
-          <div className="result-card prediction-result">
-            <h3>Predicted Section </h3>
-            <p>{prediction}</p>
-          </div>
-        )}
-
-        {sectionDetails && (
-          <div className="result-card section-details">
-            <h3>Section Details </h3>
-            <div className="details-grid">
-              <div>
-                <strong>Title:</strong>
-                <p>{sectionDetails.title}</p>
+        <div className="content-scroll-container">
+          <div className={`search-container-wrapper ${searchbarPosition}`}>
+            <div className="search-content">
+              <div className="greeting-section">
+                <h1>{greeting}</h1>
+                <p>Explore legal scenarios and get instant IT Act insights</p>
               </div>
-              <div>
-                <strong>Description:</strong>
-                <p>{sectionDetails.description}</p>
-              </div>
-              <div>
-                <strong>Punishments:</strong>
-                <p>{sectionDetails.punishments}</p>
+              
+              <div className="search-container">
+                <input 
+                  type="text"
+                  placeholder="Describe your legal scenario..."
+                  value={query}
+                  onChange={handleInputChange}
+                  className="scenario-input"
+                />
+                <button 
+                  className="analyze-button professional-button"
+                  onClick={handleSearch}
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Analyzing... " : "Analyze Scenario"}
+                </button>
               </div>
             </div>
           </div>
-        )}
 
-        {error && (
-          <div className="result-card error-result">
-            <p>{error}</p>
+          <div className="results-section">
+            {isLoading && (
+              <div className="loading-spinner">
+                <div className="spinner"></div>
+              </div>
+            )}
+
+            {prediction && (
+              <div className="result-card prediction-result">
+                <h3>Predicted Section </h3>
+                <p>{prediction}</p>
+              </div>
+            )}
+
+            {sectionDetails && (
+              <div className="result-card section-details">
+                <h3>Section Details </h3>
+                <div className="details-grid">
+                  <div>
+                    <strong>Section Number:</strong>
+                    <p>{sectionDetails.section_number}</p>
+                  </div>
+                  <div>
+                    <strong>Title:</strong>
+                    <p>{sectionDetails.title}</p>
+                  </div>
+                  <div>
+                    <strong>Description:</strong>
+                    <p>{sectionDetails.description}</p>
+                  </div>
+                  <div>
+                    <strong>Punishments:</strong>
+                    <p>{sectionDetails.punishment}</p>
+                  </div>
+
+                  {sectionDetails.cases && sectionDetails.cases.length > 0 && (
+                  <div className="famous-cases-section">
+                    <strong>Famous Cases:</strong>
+                    <ul className="cases-list">
+                      {sectionDetails.cases.map((caseItem, index) => (
+                        <li key={index} className="case-item">
+                          <strong>{caseItem.case_name}:</strong> {caseItem.summary}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                </div>
+              </div>
+            )}
+
+            {error && (
+              <div className="result-card error-result">
+                <p>{error}</p>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

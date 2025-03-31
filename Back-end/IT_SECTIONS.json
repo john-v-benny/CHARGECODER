@@ -1,0 +1,468 @@
+{
+    "Information_Technology_Act_2000": {
+      "description": "The Information Technology Act, 2000 is the primary law in India dealing with cybercrime and electronic commerce. It provides legal recognition for electronic transactions and digital signatures, and defines various cyber offenses and their penalties.",
+      "sections": [
+        {
+          "section_number": "43",
+          "title": "Penalty for Damage to Computer, Computer System, etc.",
+          "description": "This section penalizes unauthorized access, downloading, introduction of viruses, damage to computer systems, disruption of systems, denial of access, and other forms of computer-related damage. It covers a wide range of cyber offenses including hacking, data theft, and system disruption.",
+          "punishment": "Compensation up to ₹1 crore to the affected person.",
+          "cases": [
+            {
+              "case_name": "State of Tamil Nadu v. Suhas Katti (2004)",
+              "summary": "One of the first cases under Section 43 where the accused was convicted for posting obscene messages about a woman in a Yahoo message group. The court held this as unauthorized access and damage under Section 43."
+            },
+            {
+              "case_name": "Sony India Pvt. Ltd. v. State (2005)",
+              "summary": "Case involving unauthorized access and copying of proprietary software from company computers, leading to conviction under Section 43."
+            }
+          ]
+        },
+        {
+          "section_number": "43A",
+          "title": "Compensation for Failure to Protect Data",
+          "description": "This section mandates that any corporate body possessing, dealing or handling any sensitive personal data or information must implement reasonable security practices. If negligent in maintaining such security, resulting in wrongful loss or gain, the body corporate is liable to pay damages.",
+          "punishment": "Compensation to affected persons as determined by court.",
+          "cases": [
+            {
+              "case_name": "Facebook India v. Union of India (2019)",
+              "summary": "Case where Facebook was held potentially liable under Section 43A for failing to protect user data in the Cambridge Analytica scandal."
+            },
+            {
+              "case_name": "BigBasket Data Breach Case (2020)",
+              "summary": "The online grocery platform faced legal scrutiny under Section 43A after personal data of 2 crore users was allegedly leaked."
+            }
+          ]
+        },
+        {
+          "section_number": "44",
+          "title": "Cyber Appellate Tribunal",
+          "description": "Establishes the Cyber Appellate Tribunal to hear appeals against orders of the Controller or Adjudicating Officer. The Tribunal has the same powers as a civil court and follows principles of natural justice.",
+          "punishment": "No direct punishment (establishes appellate mechanism).",
+          "cases": [
+            {
+              "case_name": "Rajesh V. State of Maharashtra (2018)",
+              "summary": "Case where the Cyber Appellate Tribunal clarified its jurisdiction in appeals against orders of Adjudicating Officers."
+            }
+          ]
+        },
+        {
+          "section_number": "45",
+          "title": "Controller of Certifying Authorities",
+          "description": "Provides for the appointment of a Controller of Certifying Authorities who shall supervise the activities of Certifying Authorities. The Controller maintains a repository of all digital signatures and regulates their issuance.",
+          "punishment": "No direct punishment (regulatory framework).",
+          "cases": [
+            {
+              "case_name": "Digital Signature Certificate Dispute (2017)",
+              "summary": "Case where the Controller intervened in a dispute regarding issuance of faulty digital signature certificates."
+            }
+          ]
+        },
+        {
+          "section_number": "65",
+          "title": "Tampering with Computer Source Documents",
+          "description": "Penalizes knowingly or intentionally concealing, destroying, or altering any computer source code used for a computer, computer program, computer system or computer network when such source code is required to be kept or maintained by law.",
+          "punishment": "Imprisonment up to 3 years and/or fine up to ₹2 lakh.",
+          "cases": [
+            {
+              "case_name": "State of Andhra Pradesh v. Sk. Mastan Vali (2006)",
+              "summary": "First conviction under this section where the accused was found tampering with computer source documents of a government system."
+            }
+          ]
+        },
+        {
+          "section_number": "66",
+          "title": "Computer Related Offenses",
+          "description": "Covers offenses committed using computer resources including hacking, data theft, identity theft, cheating using computer resources, violation of privacy, cyber terrorism, etc. This is the most frequently invoked section for cybercrimes.",
+          "punishment": "Imprisonment up to 3 years and/or fine up to ₹5 lakh.",
+          "cases": [
+            {
+              "case_name": "State of Karnataka v. Karan Bahree (2017)",
+              "summary": "Case involving hacking of a corporate website and stealing customer data, convicted under Section 66."
+            },
+            {
+              "case_name": "ICICI Bank Phishing Case (2018)",
+              "summary": "Where accused created fake bank websites to steal customer credentials, convicted under Section 66."
+            }
+          ]
+        },
+        {
+          "section_number": "66A",
+          "title": "Punishment for Sending Offensive Messages (Repealed)",
+          "description": "Previously penalized sending offensive messages through communication services. Struck down by Supreme Court in 2015 in Shreya Singhal case as unconstitutional for being vague and overbroad.",
+          "punishment": "Previously: Imprisonment up to 3 years (now invalid).",
+          "cases": [
+            {
+              "case_name": "Shreya Singhal v. Union of India (2015)",
+              "summary": "Landmark Supreme Court judgment that struck down Section 66A as unconstitutional."
+            }
+          ]
+        },
+        {
+          "section_number": "66B",
+          "title": "Dishonestly Receiving Stolen Computer Resource or Communication Device",
+          "description": "Penalizes dishonestly receiving or retaining any stolen computer resource or communication device knowing or having reason to believe the same to be stolen.",
+          "punishment": "Imprisonment up to 3 years and/or fine up to ₹1 lakh.",
+          "cases": [
+            {
+              "case_name": "Delhi Mobile Theft Case (2019)",
+              "summary": "Where accused was found in possession of multiple stolen smartphones and convicted under Section 66B."
+            }
+          ]
+        },
+        {
+          "section_number": "66C",
+          "title": "Identity Theft",
+          "description": "Penalizes fraudulent or dishonest use of electronic signature, password or any other unique identification feature of any other person.",
+          "punishment": "Imprisonment up to 3 years and/or fine up to ₹1 lakh.",
+          "cases": [
+            {
+              "case_name": "Credit Card Fraud Case (2020)",
+              "summary": "Where accused used stolen credit card details for online shopping, convicted under Section 66C."
+            }
+          ]
+        },
+        {
+          "section_number": "66D",
+          "title": "Cheating by Personation Using Computer Resource",
+          "description": "Penalizes cheating by personation using computer resource or communication device (fake profiles, impersonation in online transactions etc.).",
+          "punishment": "Imprisonment up to 3 years and/or fine up to ₹1 lakh.",
+          "cases": [
+            {
+              "case_name": "Online Matrimonial Fraud Case (2019)",
+              "summary": "Where accused created fake matrimonial profiles to cheat people, convicted under Section 66D."
+            }
+          ]
+        },
+        {
+          "section_number": "66E",
+          "title": "Violation of Privacy",
+          "description": "Penalizes intentionally or knowingly capturing, publishing or transmitting images of private area of any person without consent.",
+          "punishment": "Imprisonment up to 3 years and/or fine up to ₹2 lakh.",
+          "cases": [
+            {
+              "case_name": "Upskirting Case Mumbai (2020)",
+              "summary": "First conviction under this section for capturing inappropriate images of women in public transport."
+            }
+          ]
+        },
+        {
+          "section_number": "66F",
+          "title": "Cyber Terrorism",
+          "description": "Penalizes any act with intent to threaten unity, integrity, security or sovereignty of India or to strike terror by denying access to computer resource, unauthorized access to restricted systems etc.",
+          "punishment": "Imprisonment up to life imprisonment.",
+          "cases": [
+            {
+              "case_name": "Indian Cyber Army Case (2019)",
+              "summary": "Where hackers targeted government websites, charged under Section 66F."
+            }
+          ]
+        },
+        {
+          "section_number": "67",
+          "title": "Publishing or Transmitting Obscene Material in Electronic Form",
+          "description": "Penalizes publishing or transmitting obscene material in electronic form. The test of obscenity is the same as in Section 292 of IPC (whether material tends to deprave and corrupt persons likely to read/see it).",
+          "punishment": "First conviction: Up to 3 years and fine up to ₹5 lakh; Subsequent: Up to 5 years and fine up to ₹10 lakh.",
+          "cases": [
+            {
+              "case_name": "State v. Vijay Mishra (2016)",
+              "summary": "Case involving circulation of obscene videos through WhatsApp groups."
+            }
+          ]
+        },
+        {
+          "section_number": "67A",
+          "title": "Publishing or Transmitting Material Containing Sexually Explicit Act in Electronic Form",
+          "description": "Penalizes publishing or transmitting material containing sexually explicit act or conduct in electronic form. Has higher penalties than Section 67.",
+          "punishment": "First conviction: Up to 5 years and fine up to ₹10 lakh; Subsequent: Up to 7 years and fine up to ₹10 lakh.",
+          "cases": [
+            {
+              "case_name": "Online Pornography Case (2018)",
+              "summary": "Where accused was running a pornographic website with explicit content."
+            }
+          ]
+        },
+        {
+          "section_number": "67B",
+          "title": "Publishing or Transmitting Material Depicting Children in Sexually Explicit Act in Electronic Form",
+          "description": "Penalizes publishing or transmitting material depicting children in sexually explicit act in electronic form. Includes penalties for creating text or digital images collecting such material etc.",
+          "punishment": "First conviction: Up to 5 years and fine up to ₹10 lakh; Subsequent: Up to 7 years and fine up to ₹10 lakh.",
+          "cases": [
+            {
+              "case_name": "Child Pornography Racket (2020)",
+              "summary": "Where a group was found circulating child sexual abuse material through encrypted apps."
+            }
+          ]
+        },
+        {
+          "section_number": "67C",
+          "title": "Preservation and Retention of Information by Intermediaries",
+          "description": "Mandates intermediaries to preserve and retain specified information for specified period and provide such information to government agencies when required.",
+          "punishment": "No specific punishment but non-compliance may attract penalties.",
+          "cases": [
+            {
+              "case_name": "Twitter Compliance Case (2021)",
+              "summary": "Where Twitter was directed to preserve certain account information as part of an investigation."
+            }
+          ]
+        },
+        {
+          "section_number": "68",
+          "title": "Power of Controller to Give Directions",
+          "description": "Empowers Controller to give directions to Certifying Authorities or any employee regarding standards to be maintained, procedures to be followed etc.",
+          "punishment": "Non-compliance may lead to suspension/cancellation of license.",
+          "cases": []
+        },
+        {
+          "section_number": "69",
+          "title": "Power to Issue Directions for Interception or Monitoring or Decryption of any Information Through any Computer Resource",
+          "description": "Empowers Central/State Government to intercept, monitor or decrypt any information transmitted through any computer resource in interest of sovereignty/integrity of India, defense, security, friendly relations with foreign states etc.",
+          "punishment": "Non-compliance may lead to penalties.",
+          "cases": [
+            {
+              "case_name": "Blackberry Interception Case (2013)",
+              "summary": "Where government directed telecom companies to provide access to encrypted Blackberry communications."
+            }
+          ]
+        },
+        {
+          "section_number": "69A",
+          "title": "Power to Issue Directions for Blocking for Public Access of any Information Through any Computer Resource",
+          "description": "Empowers Central Government to block public access to any information through any computer resource on similar grounds as Section 69.",
+          "punishment": "Non-compliance may lead to penalties.",
+          "cases": [
+            {
+              "case_name": "TikTok Ban Case (2019)",
+              "summary": "Where Madras High Court directed government to ban TikTok citing inappropriate content, later implemented under this section."
+            }
+          ]
+        },
+        {
+          "section_number": "69B",
+          "title": "Power to Authorize to Monitor and Collect Traffic Data or Information Through any Computer Resource for Cyber Security",
+          "description": "Empowers Central Government to monitor and collect traffic data for cyber security purposes.",
+          "punishment": "Non-compliance may lead to penalties.",
+          "cases": []
+        },
+        {
+          "section_number": "70",
+          "title": "Protected System",
+          "description": "Empowers government to declare any computer resource as protected system and prohibit unauthorized access. Critical infrastructure systems are typically notified under this.",
+          "punishment": "Unauthorized access may lead to imprisonment up to 10 years.",
+          "cases": [
+            {
+              "case_name": "Power Grid Cyber Attack Case (2020)",
+              "summary": "Where attempts were made to hack into protected power grid systems."
+            }
+          ]
+        },
+        {
+          "section_number": "70A",
+          "title": "National Critical Information Infrastructure Protection Centre",
+          "description": "Provides for establishment of National Critical Information Infrastructure Protection Centre to protect critical information infrastructure.",
+          "punishment": "No direct punishment (organizational provision).",
+          "cases": []
+        },
+        {
+          "section_number": "70B",
+          "title": "Indian Computer Emergency Response Team",
+          "description": "Provides for establishment of CERT-In to serve as national agency for incident response.",
+          "punishment": "No direct punishment (organizational provision).",
+          "cases": []
+        },
+        {
+          "section_number": "71",
+          "title": "Penalty for Misrepresentation",
+          "description": "Penalizes making misrepresentation to Controller or Certifying Authority for obtaining license or digital signature certificate.",
+          "punishment": "Imprisonment up to 2 years and/or fine up to ₹1 lakh.",
+          "cases": []
+        },
+        {
+          "section_number": "72",
+          "title": "Penalty for Breach of Confidentiality and Privacy",
+          "description": "Penalizes breach of lawful contract or disclosure of information material obtained under the Act without consent of person concerned.",
+          "punishment": "Imprisonment up to 2 years and/or fine up to ₹1 lakh.",
+          "cases": [
+            {
+              "case_name": "Employee Data Leak Case (2018)",
+              "summary": "Where IT company employee leaked client data to third parties."
+            }
+          ]
+        },
+        {
+          "section_number": "72A",
+          "title": "Punishment for Disclosure of Information in Breach of Lawful Contract",
+          "description": "Penalizes disclosure of personal information by intermediary while providing services under lawful contract, without consent or in breach of contract.",
+          "punishment": "Imprisonment up to 3 years and/or fine up to ₹5 lakh.",
+          "cases": [
+            {
+              "case_name": "Telecom Employee Data Sale Case (2019)",
+              "summary": "Where telecom company employees were selling customer data to marketing firms."
+            }
+          ]
+        },
+        {
+          "section_number": "73",
+          "title": "Penalty for Publishing Electronic Signature Certificate False in Certain Particulars",
+          "description": "Penalizes publishing electronic signature certificate containing false particulars or making such certificate available to others knowing it contains false information.",
+          "punishment": "Imprisonment up to 2 years and/or fine up to ₹1 lakh.",
+          "cases": []
+        },
+        {
+          "section_number": "74",
+          "title": "Publication for Fraudulent Purpose",
+          "description": "Penalizes creation, publication or otherwise making available electronic signature certificate for any fraudulent or unlawful purpose.",
+          "punishment": "Imprisonment up to 2 years and/or fine up to ₹1 lakh.",
+          "cases": []
+        },
+        {
+          "section_number": "75",
+          "title": "Act to Apply for Offense or Contravention Committed Outside India",
+          "description": "Provides for extra-territorial application of the Act if offense involves computer, computer system or network located in India.",
+          "punishment": "As per relevant offense sections.",
+          "cases": [
+            {
+              "case_name": "US-Based Hacker Case (2017)",
+              "summary": "Where hacker based in US targeted Indian banking systems, prosecuted under this provision."
+            }
+          ]
+        },
+        {
+          "section_number": "76",
+          "title": "Confiscation",
+          "description": "Provides for confiscation of any computer, computer system, floppies, CDs, or other accessories used in commission of offense under the Act.",
+          "punishment": "No imprisonment (property confiscation provision).",
+          "cases": []
+        },
+        {
+          "section_number": "77",
+          "title": "Penalties or Confiscation Not to Interfere with Other Punishments",
+          "description": "Clarifies that penalties or confiscation under the Act are in addition to other punishments under any other law.",
+          "punishment": "N/A (interpretative provision).",
+          "cases": []
+        },
+        {
+          "section_number": "78",
+          "title": "Power to Investigate Offenses",
+          "description": "Empowers police officers not below rank of Inspector to investigate offenses under the Act.",
+          "punishment": "N/A (procedural provision).",
+          "cases": []
+        },
+        {
+          "section_number": "79",
+          "title": "Exemption from Liability of Intermediary in Certain Cases",
+          "description": "Provides safe harbor to intermediaries if they fulfill certain conditions (dont initiate transmission, dont modify information, observe due diligence etc.).",
+          "punishment": "N/A (protective provision).",
+          "cases": [
+            {
+              "case_name": "Shreya Singhal v. Union of India (2015)",
+              "summary": "SC interpreted this section to provide immunity to intermediaries for user-generated content."
+            }
+          ]
+        },
+        {
+          "section_number": "80",
+          "title": "Power of Police Officer and Other Officers to Enter, Search, etc.",
+          "description": "Empowers designated officers to enter/search public places, arrest without warrant, seize devices etc. for investigation of offenses under the Act.",
+          "punishment": "N/A (investigative powers provision).",
+          "cases": []
+        },
+        {
+          "section_number": "81",
+          "title": "Act to Have Overriding Effect",
+          "description": "Provides that provisions of this Act shall have effect notwithstanding anything inconsistent in any other law.",
+          "punishment": "N/A (interpretative provision).",
+          "cases": []
+        },
+        {
+          "section_number": "84A",
+          "title": "Modes or Methods for Encryption",
+          "description": "Empowers Central Government to prescribe modes/methods of encryption for secure use of electronic medium and for promotion of e-governance and e-commerce.",
+          "punishment": "N/A (regulatory provision).",
+          "cases": []
+        },
+        {
+          "section_number": "84B",
+          "title": "Punishment for Abetment of Offenses",
+          "description": "Penalizes abetment of any offense under the Act.",
+          "punishment": "Same as for principal offense.",
+          "cases": []
+        },
+        {
+          "section_number": "84C",
+          "title": "Punishment for Attempt to Commit Offenses",
+          "description": "Penalizes attempt to commit any offense under the Act.",
+          "punishment": "Up to one-half of longest term of imprisonment provided for offense or fine or both.",
+          "cases": []
+        },
+        {
+          "section_number": "85",
+          "title": "Offenses by Companies",
+          "description": "Provides for liability of persons responsible for conduct of company's business when company commits offense under the Act.",
+          "punishment": "Person in charge liable unless proves offense committed without knowledge or despite due diligence.",
+          "cases": [
+            {
+              "case_name": "Data Breach Liability Case (2020)",
+              "summary": "Where company directors were held liable for data breach due to negligence."
+            }
+          ]
+        },
+        {
+          "section_number": "86",
+          "title": "Removal of Difficulties",
+          "description": "Empowers Central Government to remove difficulties in implementation of Act through orders (sunset clause of 2 years from commencement).",
+          "punishment": "N/A (transitional provision).",
+          "cases": []
+        },
+        {
+          "section_number": "87",
+          "title": "Power of Central Government to Make Rules",
+          "description": "Empowers Central Government to make rules to carry out provisions of the Act.",
+          "punishment": "N/A (rule-making provision).",
+          "cases": []
+        },
+        {
+          "section_number": "88",
+          "title": "Power of Controller to Make Regulations",
+          "description": "Empowers Controller to make regulations consistent with Act and rules made thereunder.",
+          "punishment": "N/A (regulatory provision).",
+          "cases": []
+        },
+        {
+          "section_number": "89",
+          "title": "Power to Make Rules by State Government",
+          "description": "Empowers State Governments to make rules for electronic governance within their jurisdiction.",
+          "punishment": "N/A (rule-making provision).",
+          "cases": []
+        },
+        {
+          "section_number": "90",
+          "title": "Amendment of Act 45 of 1860",
+          "description": "Makes consequential amendments to Indian Penal Code.",
+          "punishment": "N/A (amending provision).",
+          "cases": []
+        },
+        {
+          "section_number": "91",
+          "title": "Amendment of Act 1 of 1872",
+          "description": "Makes consequential amendments to Indian Evidence Act.",
+          "punishment": "N/A (amending provision).",
+          "cases": []
+        },
+        {
+          "section_number": "92",
+          "title": "Amendment of Act 18 of 1891",
+          "description": "Makes consequential amendments to Bankers' Books Evidence Act.",
+          "punishment": "N/A (amending provision).",
+          "cases": []
+        },
+        {
+          "section_number": "93",
+          "title": "Amendment of Act 2 of 1934",
+          "description": "Makes consequential amendments to Reserve Bank of India Act.",
+          "punishment": "N/A (amending provision).",
+          "cases": []
+        }
+      ]
+    }
+  }
