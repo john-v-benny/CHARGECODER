@@ -21,7 +21,6 @@ ChargeCoder revolutionizes cybercrime case processing by automating legal charge
 - ⚡ **Reduces processing time** from 4-6 hours to under 2 minutes
 - 🎯 **Achieves 85%+ accuracy** in charge prediction
 - 📚 **Covers 12+ cybercrime categories** under IT Act and BNS
-- 🌐 **Multilingual support** for Hindi/English inputs
 
 ```mermaid
 graph TD
